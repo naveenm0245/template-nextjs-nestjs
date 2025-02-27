@@ -1,0 +1,38 @@
+{
+    "name": "social-app",
+    "version": "1.0.0",
+    "main": "index.js",
+    "type": "module",
+    "workspaces": [
+      "social-backend",
+      "social-frontend"
+    ],
+    "scripts": {
+      "dev": "concurrently -c \"blue.bold,green.bold\" -n \"FRONTEND,BACKEND\" \"bun run dev:frontend\" \"bun run dev:backend\"",
+      "dev:frontend": "cd social-frontend && bun run dev",
+      "dev:backend": "cd social-backend && pnpm run start:dev",
+      "build": "concurrently -c \"blue.bold,green.bold\" -n \"FRONTEND,BACKEND\" \"bun run build:frontend\" \"bun run build:backend\"",
+      "build:frontend": "cd social-frontend && bun run build",
+      "build:backend": "cd social-backend && pnpm run build",
+      "start": "concurrently -c \"blue.bold,green.bold\" -n \"FRONTEND,BACKEND\" \"bun run start:frontend\" \"bun run start:backend\"",
+      "start:frontend": "cd social-frontend && bun run start",
+      "start:backend": "cd social-backend && pnpm run start:prod",
+      "lint": "concurrently -c \"blue.bold,green.bold\" -n \"FRONTEND,BACKEND\" \"bun run lint:frontend\" \"bun run lint:backend\"",
+      "lint:frontend": "cd social-frontend && bun run lint",
+      "lint:backend": "cd social-backend && pnpm run lint",
+      "install:all": "concurrently -c \"blue.bold,green.bold\" -n \"FRONTEND,BACKEND\" \"bun run install:frontend\" \"pnpm run install:backend\"",
+      "install:frontend": "cd social-frontend && bun install",
+      "install:backend": "cd social-backend && pnpm install"
+    },
+    "devDependencies": {
+      "concurrently": "^8.2.2"
+    },
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "dependencies": {
+      "@types/js-cookie": "^3.0.6",
+      "js-cookie": "^3.0.5"
+    }
+  }
+  
